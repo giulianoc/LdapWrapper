@@ -28,7 +28,19 @@ SET (HEADERS
 	LdapWrapper.h
 )
 
+if(APPLE)
+	include_directories("${LDAP_INCLUDE_DIR}")
+endif()
+
+if(APPLE)
+	link_directories("${LDAP_LIB_DIR}")
+endif()
+
 add_library (LdapWrapper SHARED ${SOURCES} ${HEADERS})
+
+if(APPLE)
+	target_link_libraries(LdapWrapper PRIVATE ldap lber)
+endif()
 
 install (TARGETS LdapWrapper DESTINATION lib)
 install (FILES ${HEADERS} DESTINATION include)
