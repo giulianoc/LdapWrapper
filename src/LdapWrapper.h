@@ -28,8 +28,6 @@
 	#include <tuple>
 	#include <string>
 
-	using namespace std;
-
 	typedef class LdapWrapper
 	{
 		private:
@@ -37,13 +35,13 @@
 
 			LdapWrapper &operator = (const LdapWrapper &);
 
-			string	_ldapURL;
-			string	_ldapHostName;
+			std::string	_ldapURL;
+			std::string	_ldapHostName;
 			int		_ldapPort;
 			bool	_overSSL;
-			string	_certificatePathName;
-			string	_managerUserName;
-			string	_managerPassword;
+			std::string	_certificatePathName;
+			std::string	_managerUserName;
+			std::string	_managerPassword;
 
 		public:
 			/**
@@ -56,14 +54,14 @@
 			*/
 			~LdapWrapper ();
 
-			void init (string ldapURL, string certificatePathName,
-					string managerUserName, string managerPassword);
+			void init (std::string ldapURL, std::string certificatePathName,
+					std::string managerUserName, std::string managerPassword);
 
-			void init (string ldapHostName, int ldapPort, bool overSSL,
-				string certificatePathName, string managerUserName, string managerPassword);
+			void init (std::string ldapHostName, int ldapPort, bool overSSL,
+				std::string certificatePathName, std::string managerUserName, std::string managerPassword);
 
-			pair<bool,string> testCredentials (
-					string userName, string password, string searchBaseDn);
+			std::pair<bool,std::string> testCredentials (
+					std::string userName, std::string password, std::string searchBaseDn);
 
 	} LdapWrapper_t, *LdapWrapper_p;
 

@@ -29,6 +29,7 @@
 
 #include <iostream>
 
+using namespace std;
 
 extern "C" {
 // #include <lber.h>
